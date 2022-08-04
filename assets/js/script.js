@@ -5,10 +5,12 @@ function generatePassword() {
   var includeUpperCase = window.confirm("Would you like to include uppercase?");
   var includeLowerCase = window.confirm("Would you like to include lowercase?");
   
- 
+ for (var i = 0; i <= passwordLength; i++) {
+  
+ }
 
   //creating arrays
- console.log(passwordLength);
+//  console.log(passwordLength);
 }
   //created ways to generate random lower and upper case letters and numbers
   function getRandomLower() {
