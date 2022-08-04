@@ -1,14 +1,15 @@
 // getting code to the generate password 
 function generatePassword() {
+  var passwordLength = parseInt(window.prompt ("How many characters would you like your password to have?"));
+  var includeSymbols = window.confirm("Would you like to include symbols?");
+  var includeUpperCase = window.confirm("Would you like to include uppercase?");
+  var includeLowerCase = window.confirm("Would you like to include lowercase?");
+  
+ 
 
+  //creating arrays
+ console.log(passwordLength);
 }
-  // //ask user for variables
-  // var passwordLength = window.prompt ("How many characters would you like your password to have?");
-  // var includeSymbols = window.confirm("Would you like to include symbols?");
-  // var includeUpperCase = window.confirm("Would you like to include uppercase?");
-  // var includeLowerCase = window.confirm("Would you like to include lowercase?");
-  // //creating arrays
-
   //created ways to generate random lower and upper case letters and numbers
   function getRandomLower() {
     var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
@@ -30,7 +31,7 @@ function generatePassword() {
     return symbol[Math.floor(Math.random() * symbol.length)];
   }
 
-console.log(getRandomNumber());
+// console.log(length());
 //   return passwordLength;
 // }
 // Get references to the #generate element
