@@ -5,13 +5,100 @@ function generatePassword() {
   var includeUpperCase = window.confirm("Would you like to include uppercase?");
   var includeLowerCase = window.confirm("Would you like to include lowercase?");
   
- for (var i = 0; i <= passwordLength; i++) {
-  
- }
+  let finalPass = "";
+    let randNum;
+    for (var i = 0; i < passwordLength; i++) {
+        if (includeSymbols && includeUpperCase && includeLowerCase) { //all are true
+            randNum = numGen(3); //0-3 (4 options)
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                case 1:
+                    finalPass += getRandomSymbol();
+                    break;
+                case 2:
+                    finalPass += getRandomUpper();
+                    break;
+                default:
+                    finalPass += getRandomLower();
+            }
+        } else if (includeSymbols && !includeUpperCase && includeLowerCase) {
+            randNum = numGen(2);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                case 1:
+                    finalPass += getRandomSymbol();
+                    break;
+                default:
+                    finalPass += getRandomLower();
+            }
+        } else if (includeSymbols && includeUpperCase && !includeLowerCase) {
+            randNum = numGen(2);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                case 1:
+                    finalPass += getRandomSymbol();
+                    break;
+                default:
+                    finalPass += getRandomUpper();
+            }
+        } else if (includeSymbols && !includeUpperCase && !includeLowerCase) {
+            randNum = numGen(1);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                default:
+                    finalPass += getRandomSymbol();
+            }
+        } else if (!includeSymbols && !includeUpperCase && includeLowerCase) {
+            randNum = numGen(1);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                default:
+                    finalPass += getRandomLower();
+            }
+        } else if (!includeSymbols && includeUpperCase && !includeLowerCase) {
+            randNum = numGen(1);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                default:
+                    finalPass += getRandomUpper();
+            }
+        } else if (!includeSymbols && includeUpperCase && includeLowerCase) {
+            randNum = numGen(2);
+            switch (randNum) {
+                case 0:
+                    finalPass += getRandomNumber();
+                    break;
+                case 1:
+                    finalPass += getRandomUpper();
+                    break;
+                default:
+                    finalPass += getRandomLower();
+            }
+        } else { //all are false
+            finalPass += getRandomNumber();
+        }
+    }
+    return finalPass;
+}
+
+function numGen(end) {
+  return Math.floor(Math.random() * (end + 1)); // 0 to end
+}
 
   //creating arrays
 //  console.log(passwordLength);
-}
   //created ways to generate random lower and upper case letters and numbers
   function getRandomLower() {
     var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
